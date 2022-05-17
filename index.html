@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TermNote</title>
+  </head>
+  <body>
+    <div class="nav">
+      <nav id="menu">
+        <ul id="menu__items">
+          <li id="menu__item--file">File<ul id="menu__item-file--submenu" class="submenu hidden">
+            <li>Settings</li>
+            <li>Quit</li>
+          </ul>
+        </li>
+          <li id="menu__item--edit">Edit<ul id="menu__item-edit--submenu" class="submenu hidden">
+            <li>Cut</li>
+            <li>Copy</li>
+            <li>Paste</li>
+            <li>Undo</li>
+          </ul></li>
+          <li>View</li>
+          <li>Help</li>
+        </ul>
+      </nav>
+    </div>
+    <div class="settings__screen hidden">
+        <div>Just random content bla bla bla</div>
+    </div>
+    <div class="wrapper">
+      <div class="notes">
+        <ul class="notes__list">
+          <li class="notes__list--item">
+            <span class="note-title">Note 1</span>
+            <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
+          </li class="notes__list--item">
+          <li class="notes__list--item">
+            <span class="note-title">Note 1</span>
+            <p class="note-brief">Lorem ipsum chipsstund gypsum Lorem ipsum chipsstund gypsum Lorem ipsum chipsstund gypsum Lorem ipsum chipsstund gypsum </p>
+          </li class="notes__list--item">
+          <li class="notes__list--item">
+            <span class="note-title">Note 1</span>
+            <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
+          </li>
+          <li class="notes__list--item">
+            <span class="note-title">Note 1</span>
+            <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
+          </li>
+          <li class="notes__list--item">
+            <span class="note-title">Note 1</span>
+            <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
+          </li>
+        </ul>
+      </div>
+      <div class="main">
+        <nav id="toolbar"></nav>
+        <textarea id="editor"></textarea>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

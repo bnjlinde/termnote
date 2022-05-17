@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+/* Kan man ändra variablerna med JS? */
+:root {
+  --term-color-green: #4af626;
+  --term-color-green-dark: #2f9e19;
+  --frame-style-default-color: #313131;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: var(--term-color-green);
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+nav {
+  display: inline;
+}
+
+ul {
+  list-style: none;
+}
+
+#menu__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid var(--frame-style-default-color);
+  position: relative;
+  padding-right: 4rem;
+}
+
+.submenu {
+  background-color: black;
+  padding: 0.1rem 1rem;
+  margin: 0;
+  border: 1px solid var(--term-color-green);
+  position: absolute;
+}
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  border: 4px solid var(--frame-style-default-color);
+}
+
+.notes__list {
+  padding: 0;
+  margin: 0;
+}
+
+.notes__list--item {
+  border: 1px solid var(--frame-style-default-color);
+  border-left: none;
+  border-right: none;
+  padding: 0 0.4rem;
+  color: var(--term-color-green-dark);
+}
+
+.notes__list--item:hover {
+  color: var(--term-color-green);
+}
+
+.notes__list--item.active {
+  color: var(--term-color-green);
+}
+
+.note-brief {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.note-title {
+  font-weight: bold;
+}
+
+.note-title::before {
+  content: './';
+}
+
+#editor {
+  border-left: 4px solid var(--frame-style-default-color);
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  color: var(--term-color-green);
+  font-size: 1.5em;
+  box-sizing: border-box;
+  resize: none;
+  background-color: black;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* TODO: Full screen settings dialog.  */

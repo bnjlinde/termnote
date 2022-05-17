@@ -1,0 +1,26 @@
+1. Implement datahandler object. Initial functionality should be to load and save from/to localstorage.
+2. Implement Settings screen. initial functionality should be to switch between two themes and changing text size.
+3. [STYLE] Set a reasonable max-width of app. When exceeded app window should be centered.  
+
+
+
+
+
+
+
+
+
+Not-so-distant Future roadmap
+--------------
+* Basic text formatting - bold, italics, underline
+* Support for URL's
+    * Open preview in tab to be toggled
+* Background images
+    * Opacity settings
+
+* implement easter eggs
+
+
+Distant future roadmap
+----------------------
+* implement basic markdown support
