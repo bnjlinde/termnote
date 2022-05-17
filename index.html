@@ -8,11 +8,20 @@
     <title>TermNote</title>
   </head>
   <body>
+    <div id="appcontainer">
+      <div id="titlebar">
+        <h1 class="titlebar__title">TermNote v0.1</h1>
+        <div class="titlebar__buttons">
+          <span>M</span>
+          <span>F</span>
+          <span>X</span>
+        </div>
+      </div>
     <div class="nav">
       <nav id="menu">
         <ul id="menu__items">
           <li id="menu__item--file">File<ul id="menu__item-file--submenu" class="submenu hidden">
-            <li>Settings</li>
+            <li id="menu__item-file--settings">Settings</li>
             <li>Quit</li>
           </ul>
         </li>
@@ -28,7 +37,24 @@
       </nav>
     </div>
     <div class="settings__screen hidden">
-        <div>Just random content bla bla bla</div>
+        <fieldset class="settings">
+          <div class="settings__group settings__group--theme">
+            <label id="lbl__theme">Theme:</label>
+            <input type="radio" name="theme" value="greentheme" checked>
+            <label for="greentheme">Green</label>
+            <input type="radio" name="theme" value="orangetheme">
+            <label for="orangetheme">Orange</label>
+            <br>
+            <label>Font:</label>
+            <input type="radio" name="font" value="Ubuntu" checked>
+            <label for="Ubuntu">Ubuntu Mono</label>
+            <input type="radio" name="font" value="RedHat">
+            <label for="RedHat">Red Hat Mono</label>
+        </div>
+        <div>
+          <button class="settings__button" id="settings__save--button">Save settings</button>
+        </div>
+        </fieldset>
     </div>
     <div class="wrapper">
       <div class="notes">
@@ -60,6 +86,7 @@
         <textarea id="editor"></textarea>
       </div>
     </div>
-    <script src="script.js"></script>
+  </div>  
+    <script src="script.js" type="module"></script>
   </body>
 </html>
