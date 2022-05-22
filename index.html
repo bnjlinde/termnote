@@ -22,6 +22,7 @@
         <ul id="menu__items">
           <li id="menu__item--file">File<ul id="menu__item-file--submenu" class="submenu hidden">
             <li id="menu__item-file--settings">Settings</li>
+            <li id="menu__item-file--save">Save</li>
             <li>Quit</li>
           </ul>
         </li>
@@ -31,10 +32,19 @@
             <li>Paste</li>
             <li>Undo</li>
           </ul></li>
-          <li>View</li>
-          <li>Help</li>
+          <li id="menu__item--view">View<ul id="menu__item-view--submenu" class="submenu hidden">
+            <li>Zoom <button id="zoomplus">-</button><button id="zoommin">+</button></li>
+          </ul></li>
+          <li id="menu__item--help">Help<ul id="menu__item-help--submenu" class="submenu hidden">
+            <li>Help</li>
+            <li id="menu__help--about">About</li>
+          </ul></li>
         </ul>
       </nav>
+    </div>
+    <div class="hidden" id="about">
+      <h2>TermNote v0.1</h2>
+      <p>Author: Johan Linde<br/>bnjl@proton.me</p>
     </div>
     <div class="settings__screen hidden">
         <fieldset class="settings">
@@ -84,6 +94,10 @@
       <div class="main">
         <nav id="toolbar"></nav>
         <textarea id="editor"></textarea>
+        <div id="status-area">
+          <div class="minimized">Term #1</div>
+        </div>
+        <!-- <!-- <button id="loadNotes">LOAD</button> -->
       </div>
     </div>
   </div>  
