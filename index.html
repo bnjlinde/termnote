@@ -12,64 +12,88 @@
       <div id="titlebar">
         <h1 class="titlebar__title">TermNote v0.1</h1>
         <div class="titlebar__buttons">
-          <span>M</span>
-          <span>F</span>
-          <span>X</span>
+          <span><img src="img/icons/minimize.svg" /></span>
+          <span><img src="img/icons/fullscreen.svg" /></span>
+          <span><img src="img/icons/close.svg" /></span>
         </div>
       </div>
-    <div class="nav">
-      <nav id="menu">
-        <ul id="menu__items">
-          <li id="menu__item--file">File<ul id="menu__item-file--submenu" class="submenu hidden">
-            <li id="menu__item-file--settings">Settings</li>
-            <li id="menu__item-file--save">Save</li>
-            <li>Quit</li>
+      <div class="nav">
+        <nav id="menu">
+          <ul id="menu__items">
+            <li id="menu__item--file">
+              File
+              <ul id="menu__item-file--submenu" class="submenu hidden">
+                <li id="menu__item--file-new">New...</li>
+                <li id="menu__item-file--settings">Settings</li>
+                <li id="menu__item-file--save">Save</li>
+                <li>Quit</li>
+              </ul>
+            </li>
+            <li id="menu__item--edit">
+              Edit
+              <ul id="menu__item-edit--submenu" class="submenu hidden">
+                <li>Cut</li>
+                <li>Copy</li>
+                <li>Paste</li>
+                <li>Undo</li>
+              </ul>
+            </li>
+            <li id="menu__item--view">
+              View
+              <ul id="menu__item-view--submenu" class="submenu hidden">
+                <li>
+                  Zoom <button id="zoomplus">-</button
+                  ><button id="zoommin">+</button>
+                </li>
+              </ul>
+            </li>
+            <li id="menu__item--help">
+              Help
+              <ul id="menu__item-help--submenu" class="submenu hidden">
+                <li>Help</li>
+                <li id="menu__help--about">About</li>
+              </ul>
+            </li>
           </ul>
-        </li>
-          <li id="menu__item--edit">Edit<ul id="menu__item-edit--submenu" class="submenu hidden">
-            <li>Cut</li>
-            <li>Copy</li>
-            <li>Paste</li>
-            <li>Undo</li>
-          </ul></li>
-          <li id="menu__item--view">View<ul id="menu__item-view--submenu" class="submenu hidden">
-            <li>Zoom <button id="zoomplus">-</button><button id="zoommin">+</button></li>
-          </ul></li>
-          <li id="menu__item--help">Help<ul id="menu__item-help--submenu" class="submenu hidden">
-            <li>Help</li>
-            <li id="menu__help--about">About</li>
-          </ul></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="hidden" id="about">
-      <h2>TermNote v0.1</h2>
-      <p>Author: Johan Linde<br/>bnjl@proton.me</p>
-    </div>
-    <div class="settings__screen hidden">
+        </nav>
+      </div>
+      <div class="hidden" id="about">
+        <h2>TermNote v0.1</h2>
+        <p>Author: Johan Linde<br />bnjl@proton.me</p>
+      </div>
+      <div class="settings__screen hidden">
         <fieldset class="settings">
           <div class="settings__group settings__group--theme">
             <label id="lbl__theme">Theme:</label>
-            <input type="radio" name="theme" value="greentheme" checked>
+            <input type="radio" name="theme" value="greentheme" checked />
             <label for="greentheme">Green</label>
-            <input type="radio" name="theme" value="orangetheme">
+            <input type="radio" name="theme" value="orangetheme" />
             <label for="orangetheme">Orange</label>
-            <br>
+            <br />
             <label>Font:</label>
-            <input type="radio" name="font" value="Ubuntu" checked>
+            <input type="radio" name="font" value="Ubuntu" checked />
             <label for="Ubuntu">Ubuntu Mono</label>
-            <input type="radio" name="font" value="RedHat">
+            <input type="radio" name="font" value="RedHat" />
             <label for="RedHat">Red Hat Mono</label>
-        </div>
-        <div>
-          <button class="settings__button" id="settings__save--button">Save settings</button>
-        </div>
+          </div>
+          <div class="settings__group settings__group--save">
+            <label>Autosave: </label>
+            <input type="radio" name="autosave" value="autosaveon" checked />
+            <label for="autosaveon">On</label>
+            <input type="radio" name="autosave" value="autosaveoff" />
+            <label for="autosaveoff">Off</label>
+          </div>
+          <div>
+            <button class="settings__button" id="settings__save--button">
+              Save settings
+            </button>
+          </div>
         </fieldset>
-    </div>
-    <div class="wrapper">
-      <div class="notes">
-        <ul class="notes__list">
-          <li class="notes__list--item">
+      </div>
+      <div class="wrapper">
+        <div class="notes">
+          <ul class="notes__list">
+            <!-- <li class="notes__list--item">
             <span class="note-title">Note 1</span>
             <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
           </li class="notes__list--item">
@@ -88,19 +112,20 @@
           <li class="notes__list--item">
             <span class="note-title">Note 1</span>
             <p class="note-brief">Lorem ipsum chipsstund gypsum</p>
-          </li>
-        </ul>
-      </div>
-      <div class="main">
-        <nav id="toolbar"></nav>
-        <textarea id="editor"></textarea>
-        <div id="status-area">
-          <div class="minimized">Term #1</div>
+          </li> -->
+          </ul>
         </div>
-        <!-- <!-- <button id="loadNotes">LOAD</button> -->
+        <div class="main">
+          <nav id="toolbar"></nav>
+          <textarea id="editor" autofocus></textarea>
+          <!-- <div id="status-area">
+            <div class="minimized">Term #1</div>
+          </div> -->
+          <!-- <button id="loadNotes">LOAD</button> -->
+          <button id="deleteNote">Delete</button>
+        </div>
       </div>
     </div>
-  </div>  
     <script src="script.js" type="module"></script>
   </body>
 </html>

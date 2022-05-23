@@ -1,23 +1,13 @@
 class DataHandler {
   #state = {
-    notes: [
-      {
-        title: 'Note #1',
-        text: 'Hejsan svejan hoppsan loppsan.',
-      },
-      {
-        title: 'Note #2',
-        text: 'Här är den andra anteckningen',
-      },
-      {
-        title: 'Den tredje anteckningen',
-        text: 'Bara test, tredje anteckningen',
-      },
-    ],
+    notes: [],
     initTime: null,
     localTimeStamp: null,
     remoteTimeStamp: null,
+    saveOnTime: 10,
   };
+
+  #settings = {};
   /**
    * Denna klass ska göra följande:
    * 0. Hålla all information som state
@@ -29,12 +19,30 @@ class DataHandler {
   constructor() {
     this.#state.initTime = Date.now();
     this._getLocalStorage();
+    if (this.#state.notes.length < 1) this.newNote();
+    if (this.#settings.autosave) this.startSaveTimer();
   }
 
-  _intermedSave() {}
+  startSaveTimer(interval = this.#state.saveOnTime) {
+    this.saveTimer = setTimeout(
+      function () {
+        this.saveNotes(true);
+      }.bind(this),
+      this.#state.saveOnTime * 1000
+    );
+  }
+
+  stopSaveTimer() {
+    clearTimeout(this.saveTimer);
+  }
+
+  _stopIntermedSave() {
+    clearTimeout(this.saveTimer);
+  }
 
   _storeLocal() {
     window.localStorage.setItem('notes', JSON.stringify(this.#state.notes));
+    this.localTimeStamp = Date.now();
   }
 
   _getLocalStorage() {
@@ -52,9 +60,10 @@ class DataHandler {
      */
   }
 
-  save(confirmed = false) {
+  saveNotes(confirmed = false) {
     if (!confirmed) {
       if (
+        window.localStorage.getItem('notes') &&
         window.confirm(
           'This will overwrite your currently stored notes. OK?'
         ) === true
@@ -66,13 +75,27 @@ class DataHandler {
     }
   }
 
+  saveNote(index, contents) {
+    try {
+      if (!this.#state.notes[index]) {
+        this.#state.notes.push(contents);
+      } else {
+        this.#state.notes[index].text = contents.text;
+        this.#state.notes[index].title = contents.title;
+      }
+      this.saveNotes(true);
+    } catch (err) {
+      console.error(`Could not store note, ${err}`);
+    }
+  }
+
   _genRowMarkup(note, index) {
     // TODO - Begränsa längd på texten
     return `
     <li class="notes__list--item" data-index="${index}">
             <span class="note-title">${note.title}</span>
             <p class="note-brief">${note.text}</p>
-          </li class="notes__list--item">    `;
+          </li class="notes__list--item">`;
   }
 
   getNotesList() {
@@ -92,6 +115,27 @@ class DataHandler {
     } catch (err) {
       console.log(`Error when getting note: ${err} - Location: ${this}`);
     }
+  }
+
+  newNote() {
+    this.#state.notes.push({
+      title: 'NEWNOTE',
+      text: '',
+    });
+    return this.#state.notes.length; // Index of new note, to be loaded in the interface
+  }
+
+  deleteNote(index) {
+    this.#state.notes.splice(index, 1);
+    console.log(this.#state.notes);
+  }
+
+  saveSettings(settingsObj) {
+    this.#settings = settingsObj;
+  }
+
+  getSettings() {
+    return this.#settings;
   }
 }
 

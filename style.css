@@ -27,6 +27,8 @@ body {
 
 #appcontainer {
   border: 1px solid var(--frame-style-default-color);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #titlebar {
@@ -57,14 +59,20 @@ h1.titlebar__title {
 
 .titlebar__buttons span {
   display: inline-block;
-  border: 1px solid white;
-  width: 1rem;
+  border: 1px solid black;
+  width: 0.9rem;
+  padding: 0.1rem;
   height: 1rem;
-  background-color: var(--term-bg);
+  background-color: gray;
+  /* background-color: var(--term-bg); */
   /* margin: 0.4rem 0.2rem; */
   vertical-align: middle;
-  animation-name: buttonBlink;
+  /* animation-name: buttonBlink; */
   animation-duration: 4s;
+}
+
+.titlebar__buttons span:hover {
+  filter: invert(50);
 }
 
 nav {
@@ -76,6 +84,7 @@ ul {
 }
 
 #menu__items {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -107,11 +116,17 @@ ul {
   box-sizing: border-box;
 }
 
+.notes {
+  height: 100%;
+  overflow: scroll;
+}
+
 .notes__list {
   padding: 0.2rem 0;
   margin: 0;
   height: 100%;
   border-right: 2px solid var(--frame-style-default-color);
+  /* overflow-y: scroll; */
 }
 
 .notes__list--item {
@@ -146,6 +161,19 @@ ul {
 
 .note-title::before {
   content: './';
+}
+
+.main {
+  position: relative;
+}
+
+#deleteNote {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 1rem;
+  background-color: #000;
+  color: var(--term-color);
+  border: 1px solid var(--term-color);
 }
 
 #editor {
@@ -183,6 +211,15 @@ ul {
   animation-name: minimizedBlink;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+}
+
+.settings__screen {
+  width: 100%;
+  height: 80vh;
+}
+
+.settings {
+  height: 100%;
 }
 
 /* Animations */
